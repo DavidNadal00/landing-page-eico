@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Inicio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap 5 + Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --eico-green:#2e4f2f;
+      --eico-green-700:#223c24;
+      --eico-yellow:#fbe134;
+      --eico-yellow-700:#e0c356;
+      --eico-cream:#f8f4e3;
+      --eico-text:#222;
+    }
+    body{ color:var(--eico-text); background:var(--eico-cream); }
+
+    /* NAV */
+    .navbar{ background:var(--eico-green); }
+    .navbar .nav-link, .navbar-brand, .navbar .dropdown-item{ color:#fff; }
+    .navbar .nav-link:hover, .navbar .dropdown-item:hover{ color:var(--eico-yellow); }
+    .dropdown-menu{ background:var(--eico-green); border:0; box-shadow:0 6px 20px rgba(0,0,0,.2); }
+
+    /* Botones */
+    .btn-eico{ background:var(--eico-yellow); color:var(--eico-green); border:none; font-weight:600; }
+    /* Hover más claro (blanco) como pediste */
+    .btn-eico:hover{ background:#fff; color:var(--eico-green); border:1px solid var(--eico-green); }
+
+    /* Solo para el botón “Tecnicaturas” del HERO */
+    .btn-eico-invert{ background:var(--eico-green); color:var(--eico-yellow); border:none; font-weight:700; }
+    .btn-eico-invert:hover{ background:var(--eico-green-700); color:var(--eico-yellow); }
+
+    /* HERO (look original) */
+    .hero{
+      background:
+        radial-gradient(1200px 400px at right -100px top -150px, rgba(241,214,109,.35), transparent 70%),
+        radial-gradient(900px 300px at left -100px bottom -100px, rgba(46,79,47,.20), transparent 60%),
+        linear-gradient(180deg, #fff, var(--eico-cream));
+    }
+    .hero-badge{
+      display:inline-flex; gap:.5rem; align-items:center;
+      background:rgba(255,255,255,.85); border:1px solid rgba(0,0,0,.06);
+      padding:.35rem .75rem; border-radius:999px; backdrop-filter:saturate(1.1) blur(4px);
+    }
+
+    /* Imagen full width después del nav */
+    .banner-img{ width:100%; display:block; height:auto; }
+    .banner-wrap{ width:100%; }
+
+    /* Tarjetas base */
+    .card-eico{
+      border:0; border-radius:1rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.08);
+      overflow:hidden; background:#fff;
+    }
+    /* Ajuste imágenes de cards para no deformar */
+    .card-eico .card-img-top{ height:180px; object-fit:cover; }
+
+    /* Homogeneizar contenido de cards (padding, botón al pie) */
+    .card-eico .card-body{ display:flex; flex-direction:column; gap:.5rem; padding:1rem 1rem 1.25rem; }
+    .card-eico .card-title{ margin-bottom:.25rem; }
+    .card-eico .card-text{ margin-bottom:.5rem; }
+    .card-eico .btn{ margin-top:auto; align-self:flex-start; }
+
+    /* Títulos de sección */
+    .section-title{ display:flex; align-items:center; gap:.75rem; margin-bottom:1rem; }
+    .section-title .dot{
+      width:12px; height:12px; border-radius:50%; background:var(--eico-yellow);
+      box-shadow:0 0 0 6px rgba(241,214,109,.3);
+    }
+
+    /* EVENTOS compactos dentro del HERO (col derecha) */
+    .evento-card{
+      background:#fff; border-radius:10px; padding:12px 14px; margin-bottom:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,.06);
+    }
+    .evento-card .fecha{
+      text-align:center; margin-right:12px; padding:4px 6px; border-radius:6px;
+      background:#f9f9f9; min-width:38px;
+    }
+    .evento-card h6{ font-size:1rem; margin-bottom:2px; }
+    .evento-card .small{ font-size:.75rem; }
+
+    /* KPIs (por si lo usás) */
+    .kpi{
+      background:#fff; border-radius:1rem; padding:1.25rem; text-align:center;
+      box-shadow:0 8px 24px rgba(0,0,0,.06);
+    }
+    .kpi .val{ font-size:2rem; font-weight:800; color:var(--eico-green); }
+    .kpi .lbl{ color:#555; }
+
+    /* Footer completo */
+    footer{ background:var(--eico-green); color:#fff; }
+    footer a{ color:#fff; text-decoration:none; }
+    footer a:hover{ color:var(--eico-yellow); }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR (con menús desplegables) -->
+  <nav class="navbar navbar-expand-lg sticky-top" aria-label="Navegación principal">
+    <div class="container">
+      <a class="navbar-brand fw-semibold d-flex align-items-center" href="#">
+        <img src="img/LogoEICO.png" alt="EICO Logo" height="34" class="me-2">
+      </a>
+      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link px-3" href="#novedades">Novedades</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3" href="#" data-bs-toggle="dropdown" aria-expanded="false">Escuela</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#">Sobre Nosotros</a></li>
+              <li><a class="dropdown-item" href="#tecnicaturas">Tecnicaturas</a></li>
+              <li><a class="dropdown-item" href="#equipo">Equipo de Gestión</a></li>
+              <li><a class="dropdown-item" href="#premios">Premios y Reconocimientos</a></li>
+              <li><a class="dropdown-item" href="#mapa">Ubicación</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle px-3" href="#" data-bs-toggle="dropdown">Alumnos</a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li><a class="dropdown-item" href="#ingresantes">Ingresantes</a></li>
+              <li><a class="dropdown-item" href="#">Mesas de Exámenes</a></li>
+              <li><a class="dropdown-item" href="#">Centro de Estudiantes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn btn-eico ms-lg-2" href="#">EICO Virtual</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- IMAGEN FULL WIDTH -->
+  <div class="banner-wrap">
+    <img src="/img/image.png" alt="Banner" class="banner-img">
+  </div>
+
+  <!-- HERO (col derecha = eventos compactos, uno debajo del otro) -->
+  <header class="hero py-5 py-lg-6">
+    <div class="container">
+      <div class="row align-items-center g-4">
+
+        <!-- Columna izquierda -->
+        <div class="col-lg-7">
+          <div class="hero-badge mb-3">
+            <i class="bi bi-gear-fill text-warning"></i>
+            <span class="small">EICO 1 • Caleta Olivia, Santa Cruz</span>
+          </div>
+          <h1 class="display-5 fw-bold mb-3">
+            Bienvenidos...
+          </h1>
+          <p class="lead mb-4">
+            Sección de noticias e información de nuestra escuela.
+            Aquí encontrarás las últimas noticias, anuncios y eventos importantes que suceden en nuestra comunidad educativa.
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-eico btn-lg" href="#ingresantes"><i class="bi bi-person-plus me-2"></i>Ingresantes 2026</a>
+            <!-- Botón Tecnicaturas con estilo invertido (verde/amarillo) SOLO acá -->
+            <a class="btn btn-eico-invert btn-lg" href="#tecnicaturas"><i class="bi bi-tools me-2"></i>Tecnicaturas</a>
+          </div>
+        </div>
+
+        <!-- Columna derecha (Próximos eventos compactos) -->
+        <div class="col-lg-5">
+          <div class="card-eico p-3">
+            <h5 class="mb-2">Próximos eventos</h5>
+
+            <div class="evento-card">
+              <div class="d-flex">
+                <div class="fecha">
+                  <div class="fw-bold">12</div>
+                  <div class="small text-muted">NOV</div>
+                </div>
+                <div class="flex-grow-1">
+                  <h6 class="mb-0">Expo Técnica</h6>
+                  <p class="small text-muted mb-2">18:00 · SUM EICO</p>
+                  <a href="#" class="btn btn-sm btn-eico">Ver detalle</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="evento-card">
+              <div class="d-flex">
+                <div class="fecha">
+                  <div class="fw-bold">28</div>
+                  <div class="small text-muted">NOV</div>
+                </div>
+                <div class="flex-grow-1">
+                  <h6 class="mb-0">Acto de Colación</h6>
+                  <p class="small text-muted mb-2">19:30 · Gimnasio Municipal</p>
+                  <a href="#" class="btn btn-sm btn-eico">Ver detalle</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="evento-card">
+              <div class="d-flex">
+                <div class="fecha">
+                  <div class="fw-bold">10</div>
+                  <div class="small text-muted">DIC</div>
+                </div>
+                <div class="flex-grow-1">
+                  <h6 class="mb-0">Reunión Ingresantes</h6>
+                  <p class="small text-muted mb-2">17:00 · Aula Magna</p>
+                  <a href="#" class="btn btn-sm btn-eico">Ver detalle</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- NOVEDADES -->
+  <section id="novedades" class="py-5">
+    <div class="container">
+      <div class="section-title">
+        <span class="dot"></span><h2 class="h3 mb-0">Novedades</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <article class="card-eico h-100">
+            <img src="/img/eicoestrada.jpg" class="card-img-top" alt="Ingresantes">
+            <div class="card-body">
+              <h5 class="card-title">Ingresantes 2026</h5>
+              <p class="card-text small">Fechas de inscripción, documentación y reuniones informativas para familias.</p>
+              <a href="#" class="btn btn-sm btn-eico">Leer más</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card-eico h-100">
+            <img src="/img/novedad_expo.png" class="card-img-top" alt="Proyectos">
+            <div class="card-body">
+              <h5 class="card-title">Expo Técnica 2025</h5>
+              <p class="card-text small">El 17 y 18 de noviembre se realizará la muestra anual de los trabajos realizados por los alumnos.</p>
+              <a href="#" class="btn btn-sm btn-eico">Leer más</a>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <article class="card-eico h-100">
+            <img src="img/eicominera.jpeg" class="card-img-top" alt="Capacitaciones">
+            <div class="card-body">
+              <h5 class="card-title">Visita a Cerro Vanguardia</h5>
+              <p class="card-text small">Alumnos visitaron la planta para conocer procesos y prácticas del ámbito productivo.</p>
+              <a href="#" class="btn btn-sm btn-eico">Leer más</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNICATURAS -->
+  <section id="tecnicaturas" class="py-5">
+    <div class="container">
+      <div class="section-title">
+        <span class="dot"></span><h2 class="h3 mb-0">Nuestras Tecnicaturas</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card-eico h-100">
+            <img src="/img/LogoIPP.png" class="card-img-top" alt="Informática">
+            <div class="card-body">
+              <h5 class="card-title">Informática</h5>
+              <p class="card-text small">Programación, redes, electrónica básica y prácticas con equipamiento real.</p>
+              <a href="#" class="btn btn-sm btn-eico">Ver plan</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card-eico h-100">
+            <img src="/img/LogoEIE.png" class="card-img-top" alt="Electromecánica">
+            <div class="card-body">
+              <h5 class="card-title">Electromecánica</h5>
+              <p class="card-text small">Mecánica, electricidad y automatización para la industria local.</p>
+              <a href="#" class="btn btn-sm btn-eico">Ver plan</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card-eico h-100">
+            <img src="/img/LogoIP.png" class="card-img-top" alt="Química">
+            <div class="card-body">
+              <h5 class="card-title">Química</h5>
+              <p class="card-text small">Laboratorio, análisis y procesos con enfoque en seguridad e industria.</p>
+              <a href="#" class="btn btn-sm btn-eico">Ver plan</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card-eico h-100">
+            <img src="/img/LogoMMO.png" class="card-img-top" alt="Construcciones">
+            <div class="card-body">
+              <h5 class="card-title">Construcciones</h5>
+              <p class="card-text small">Dibujo técnico, materiales y obras con enfoque regional.</p>
+              <a href="#" class="btn btn-sm btn-eico">Ver plan</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO DE GESTIÓN -->
+  <section id="equipo" class="py-5">
+    <div class="container">
+      <div class="section-title"><span class="dot"></span><h2 class="h3 mb-0">Equipo de Gestión</h2></div>
+      <ul class="list-group shadow-sm">
+        <li class="list-group-item"><strong>Director: Ing. Alam, Emilio</strong> </li>
+        <li class="list-group-item"><strong>Vicedirector:</strong> Prof. Brizuela, Pablo</li>
+        <li class="list-group-item"><strong>Regente Cultural General:</strong> Prof. Zelaya, Daniel</li>
+        <li class="list-group-item"><strong>Regente Técnico:</strong> Prof. Ynojosa, Rosa / Prof. Olivera, Julia</li>
+        <li class="list-group-item"><strong>Jefe/a Gral. de Enseñanzas Prácticas:</strong> Prof. Olivera, Elisabet</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN / MAPA -->
+  <section id="mapa" class="pb-5">
+    <div class="container">
+      <div class="section-title"><span class="dot"></span><h2 class="h3 mb-0">Ubicación</h2></div>
+      <div class="ratio ratio-21x9 rounded shadow-sm">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.7049678137597!2d-67.52914915386712!3d-46.44609739753127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbde5dfc033e31797%3A0x1d5bc8f29c1596b9!2sEscuela%20Industrial%20N%C2%B01%20General%20Enrique%20Mosconi!5e1!3m2!1ses!2sar!4v1762409125739!5m2!1ses!2sar"
+          loading="lazy" style="border:0;" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h5 class="mb-3">EICO</h5>
+          <p class="mb-2">Escuela Industrial N°1 “Gral. Enrique Mosconi”.</p>
+          <p class="mb-0">Caleta Olivia, Santa Cruz, Argentina.</p>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h6 class="mb-3">Contacto</h6>
+          <p class="mb-1"><i class="bi bi-telephone me-2"></i>(0297) 485-6780</p>
+          <p class="mb-1"><i class="bi bi-envelope me-2"></i><a href="mailto:eicolivia@gmail.com">eicolivia@gmail.com</a></p>
+          <p class="mb-0"><i class="bi bi-globe2 me-2"></i><a href="#">eico.edu.ar</a></p>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h6 class="mb-3">Enlaces útiles</h6>
+          <ul class="list-unstyled">
+            <li><a href="#novedades">Novedades</a></li>
+            <li><a href="#tecnicaturas">Tecnicaturas</a></li>
+            <li><a href="#equipo">Equipo de Gestión</a></li>
+            <li><a href="#mapa">Ubicación</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-light opacity-25 my-4">
+      <div class="d-flex flex-column flex-md-row justify-content-between small">
+        <span>© 2025 EICO — Escuela Industrial N°1 “Gral. Enrique Mosconi”.</span>
+        <span>SA.T.I.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
